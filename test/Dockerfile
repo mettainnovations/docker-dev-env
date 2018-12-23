@@ -6,6 +6,10 @@ COPY --from=mettainnovations/opencv:3.4.4 /usr/local/lib/pkgconfig/opencv.pc /us
 COPY --from=mettainnovations/opencv:3.4.4 /usr/local/include/opencv/* /usr/local/include/opencv/
 COPY --from=mettainnovations/opencv:3.4.4 /usr/local/include/opencv2/* /usr/local/include/opencv2/
 
+COPY --from=mettainnovations/dlib:19.16 /usr/local/lib/libdlib* /usr/local/lib/
+COPY --from=mettainnovations/dlib:19.16 /usr/local/lib/cmake/* /usr/local/lib/cmake/
+COPY --from=mettainnovations/dlib:19.16 /usr/local/include/dlib/* /usr/local/include/dlib/
+
 # Replace 1000 with your user / group id
 RUN export uid=1000 gid=1000 && \
     echo "developer:x:${uid}:${gid}:Developer,,,:/home/developer:/bin/bash" >> /etc/passwd && \

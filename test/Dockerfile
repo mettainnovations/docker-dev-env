@@ -23,8 +23,7 @@ WORKDIR /home/developer
 
 # Inference-engine system dependencies
 RUN apt-get update -y && \
-    apt-get install -y curl libssl-dev ca-certificates libboost-regex-dev gcc-multilib g++-multilib libgtk2.0-dev pkg-config automake libtool autoconf && \
-    apt-get install -y libpng12-dev libcairo2-dev libpango1.0-dev libglib2.0-dev libgtk2.0-dev libswscale-dev libavformat-dev libgstreamer1.0-0 gstreamer1.0-plugins-base libusb-1.0-0-dev 
+    apt-get install -y curl libssl-dev ca-certificates libboost-regex-dev gcc-multilib g++-multilib pkg-config automake libtool autoconf libpng12-dev libcairo2-dev libpango1.0-dev libglib2.0-dev libgtk2.0-dev libswscale-dev libavformat-dev libgstreamer1.0-0 gstreamer1.0-plugins-base libusb-1.0-0-dev 
 
 # Download and Build DocumentDBCpp
 RUN cd ~ && \

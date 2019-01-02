@@ -4,18 +4,18 @@ FROM mettainnovations/ubuntu-base:latest
 COPY --from=mettainnovations/opencv:3.4.4 /usr/local/bin/opencv* /usr/local/bin/
 COPY --from=mettainnovations/opencv:3.4.4 /usr/local/lib/libopencv* /usr/local/lib/
 COPY --from=mettainnovations/opencv:3.4.4 /usr/local/lib/pkgconfig/opencv.pc /usr/local/lib/pkgconfig/
-COPY --from=mettainnovations/opencv:3.4.4 /usr/local/include/opencv/* /usr/local/include/opencv/
-COPY --from=mettainnovations/opencv:3.4.4 /usr/local/include/opencv2/* /usr/local/include/opencv2/
+COPY --from=mettainnovations/opencv:3.4.4 /usr/local/include/opencv/ /usr/local/include/opencv/
+COPY --from=mettainnovations/opencv:3.4.4 /usr/local/include/opencv2/ /usr/local/include/opencv2/
 
 #Dlib Binaries: mettainnovations/dlib:19.16 dockerhub image
 COPY --from=mettainnovations/dlib:19.16 /usr/local/lib/libdlib* /usr/local/lib/
-COPY --from=mettainnovations/dlib:19.16 /usr/local/lib/cmake/* /usr/local/lib/cmake/
-COPY --from=mettainnovations/dlib:19.16 /usr/local/include/dlib/* /usr/local/include/dlib/
+COPY --from=mettainnovations/dlib:19.16 /usr/local/lib/cmake/ /usr/local/lib/cmake/
+COPY --from=mettainnovations/dlib:19.16 /usr/local/include/dlib/ /usr/local/include/dlib/
 
 #Inference-engine Binaries: mettainnovations/inference-engine:2018_R4 dockerhub image
-COPY --from=mettainnovations/inference-engine:2018_R4 /usr/local/lib/inference-engine/* /usr/local/lib/inference-engine/
-COPY --from=mettainnovations/inference-engine:2018_R4 /usr/local/include/inference-engine/* /usr/local/include/inference-engine/
-COPY --from=mettainnovations/inference-engine:2018_R4 /usr/local/include/open_model_zoo/* /usr/local/include/open_model_zoo/
+COPY --from=mettainnovations/inference-engine:2018_R4 /usr/local/lib/inference-engine/ /usr/local/lib/inference-engine/
+COPY --from=mettainnovations/inference-engine:2018_R4 /usr/local/include/inference-engine/ /usr/local/include/inference-engine/
+COPY --from=mettainnovations/inference-engine:2018_R4 /usr/local/include/open_model_zoo/ /usr/local/include/open_model_zoo/
 
 RUN mkdir -p /home/developer
 ENV HOME /home/developer

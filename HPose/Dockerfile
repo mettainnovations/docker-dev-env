@@ -1,16 +1,16 @@
-FROM mettainnovations/ubuntu-base:16.04-cuda10.0
+FROM mettainnovations/ubuntu-base:16.04
 
 #OpenCV Binaries: mettainnovations/opencv:3.4.3-cuda10.0 dockerhub image
-COPY --from=mettainnovations/opencv:3.4.3-cuda10.0 /usr/local/bin/opencv* /usr/local/bin/
-COPY --from=mettainnovations/opencv:3.4.3-cuda10.0 /usr/local/lib/libopencv* /usr/local/lib/
-COPY --from=mettainnovations/opencv:3.4.3-cuda10.0 /usr/local/lib/pkgconfig/opencv.pc /usr/local/lib/pkgconfig/
-COPY --from=mettainnovations/opencv:3.4.3-cuda10.0 /usr/local/include/opencv/ /usr/local/include/opencv/
-COPY --from=mettainnovations/opencv:3.4.3-cuda10.0 /usr/local/include/opencv2/ /usr/local/include/opencv2/
+COPY --from=mettainnovations/opencv:3.4.3 /usr/local/bin/opencv* /usr/local/bin/
+COPY --from=mettainnovations/opencv:3.4.3 /usr/local/lib/libopencv* /usr/local/lib/
+COPY --from=mettainnovations/opencv:3.4.3 /usr/local/lib/pkgconfig/opencv.pc /usr/local/lib/pkgconfig/
+COPY --from=mettainnovations/opencv:3.4.3 /usr/local/include/opencv/ /usr/local/include/opencv/
+COPY --from=mettainnovations/opencv:3.4.3 /usr/local/include/opencv2/ /usr/local/include/opencv2/
 
 #Dlib Binaries: mettainnovations/dlib:19.16-cuda10 dockerhub image
-COPY --from=mettainnovations/dlib:19.16-cuda10 /usr/local/lib/libdlib* /usr/local/lib/
-COPY --from=mettainnovations/dlib:19.16-cuda10 /usr/local/lib/cmake/ /usr/local/lib/cmake/
-COPY --from=mettainnovations/dlib:19.16-cuda10 /usr/local/include/dlib/ /usr/local/include/dlib/
+COPY --from=mettainnovations/dlib:19.16 /usr/local/lib/libdlib* /usr/local/lib/
+COPY --from=mettainnovations/dlib:19.16 /usr/local/lib/cmake/ /usr/local/lib/cmake/
+COPY --from=mettainnovations/dlib:19.16 /usr/local/include/dlib/ /usr/local/include/dlib/
 
 #Inference-engine Binaries: mettainnovations/inference-engine:2018_R4 dockerhub image
 COPY --from=mettainnovations/inference-engine:2018_R4 /usr/local/lib/inference-engine/ /usr/local/lib/inference-engine/

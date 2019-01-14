@@ -1,4 +1,4 @@
-FROM mettainnovations/ubuntu-base:latest
+FROM mettainnovations/ubuntu-base:16.04
 
 #OpenCV Binaries: mettainnovations/opencv:3.4.4 dockerhub image
 COPY --from=mettainnovations/opencv:3.4.4 /usr/local/bin/opencv* /usr/local/bin/
